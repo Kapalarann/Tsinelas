@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ namespace Tsinelas.TumbangPreso
 {
     /// <summary>
     /// Coordinates the Tumbang Preso game state: spawning slippers, tracking their status,
-    /// and responding to can knockdown events.
+    /// responding to can knockdown events, and managing the heart-based lose condition.
     /// </summary>
     public class TumbangPresoGameManager : MonoBehaviour
     {
@@ -37,11 +38,31 @@ namespace Tsinelas.TumbangPreso
         [Tooltip("The tin can object in the scene.")]
         public TumbangPresoCan can;
 
-        // Tracks all currently active slipper instances
+        [Header("Win / Lose")]
+        [Tooltip("Starting number of hearts. Each slipper respawn costs 1 heart.")]
+        public int maxHearts = 3;
+
+        [Tooltip("Prefab for the win panel. Must have TumbangPresoWinPanel attached.")]
+        public GameObject winPanelPrefab;
+
+        [Tooltip("Prefab for the lose panel. Must have TumbangPresoLosePanel attached.")]
+        public GameObject losePanelPrefab;
+
+        /// <summary>
+        /// Fired whenever the player's heart count changes.
+        /// Parameters: (int currentHearts, int maxHearts)
+        /// Hook this up to a HUD to display remaining lives.
+        /// </summary>
+        public event Action<int, int> OnHeartsChanged;
+
+        // Internal state
         private List<TumbangPresoSlipper> _activeSlippers = new List<TumbangPresoSlipper>();
         private Transform _playerTransform;
         private bool _isCheckingForEmpty = false;
-        private bool _gameWon = false;
+        private bool _gameOver = false;   // true when either win or lose has triggered
+        private int _currentHearts;
+
+
 
         private void Start()
         {
@@ -64,6 +85,10 @@ namespace Tsinelas.TumbangPreso
             // Register for can knocked-down event
             can.OnCanKnockedDown += HandleCanKnockedDown;
 
+            // Initialise hearts
+            _currentHearts = maxHearts;
+            OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+
             // Spawn starting slippers at player's feet
             SpawnSlipperBatch(useInitialSpawn: true);
         }
@@ -71,7 +96,7 @@ namespace Tsinelas.TumbangPreso
         private void Update()
         {
             // Continuously check if all slippers are spent (thrown far from player and not held)
-            if (!_isCheckingForEmpty && !_gameWon && _activeSlippers.Count > 0)
+            if (!_isCheckingForEmpty && !_gameOver && _activeSlippers.Count > 0)
             {
                 if (AllSlippersSpent())
                 {
@@ -103,6 +128,25 @@ namespace Tsinelas.TumbangPreso
             _isCheckingForEmpty = true;
 
             yield return new WaitForSeconds(respawnDelay);
+
+            if (_gameOver)
+            {
+                _isCheckingForEmpty = false;
+                yield break;
+            }
+
+            // Deduct a heart for this respawn
+            _currentHearts--;
+            Debug.Log($"TumbangPresoGameManager: Heart lost. Hearts remaining: {_currentHearts}/{maxHearts}");
+            OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+
+            if (_currentHearts <= 0)
+            {
+                // No hearts left — show the lose panel
+                ShowLose();
+                _isCheckingForEmpty = false;
+                yield break;
+            }
 
             // Clean up old slipper references (they remain in the scene but are no longer tracked)
             _activeSlippers.Clear();
@@ -147,9 +191,9 @@ namespace Tsinelas.TumbangPreso
 
                 // Spawn with a slight random rotation for visual variety
                 Quaternion randomRot = Quaternion.Euler(
-                    Random.Range(-15f, 15f),
-                    Random.Range(0f, 360f),
-                    Random.Range(-15f, 15f)
+                    UnityEngine.Random.Range(-15f, 15f),
+                    UnityEngine.Random.Range(0f, 360f),
+                    UnityEngine.Random.Range(-15f, 15f)
                 );
 
                 GameObject slipperGo = Instantiate(slipperPrefab, spawnPos, randomRot);
@@ -168,14 +212,77 @@ namespace Tsinelas.TumbangPreso
             Debug.Log($"TumbangPresoGameManager: Spawned {slippersPerBatch} slipper(s). UseInitialSpawn={useInitialSpawn}");
         }
 
+        // ─── Win / Lose ────────────────────────────────────────────────────────────
+
         private void HandleCanKnockedDown()
         {
-            if (_gameWon) return;
-            _gameWon = true;
+            if (_gameOver) return;
+            _gameOver = true;
 
             Debug.Log("TumbangPresoGameManager: CAN KNOCKED DOWN! Player wins!");
-            // TODO: Trigger win UI, score screen, or return to hub
+            ShowWin();
         }
+
+        private void ShowWin()
+        {
+            if (winPanelPrefab == null)
+            {
+                Debug.LogWarning("TumbangPresoGameManager: Win Panel Prefab is not assigned.");
+                return;
+            }
+
+            Instantiate(winPanelPrefab);
+        }
+
+        private void ShowLose()
+        {
+            _gameOver = true;
+            Debug.Log("TumbangPresoGameManager: Out of hearts! Player loses.");
+
+            if (losePanelPrefab == null)
+            {
+                Debug.LogWarning("TumbangPresoGameManager: Lose Panel Prefab is not assigned.");
+                return;
+            }
+
+            Instantiate(losePanelPrefab);
+        }
+
+        // ─── Retry ─────────────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Resets the game to its initial state without reloading the scene.
+        /// Called by TumbangPresoResultPanel when the player presses Retry.
+        /// </summary>
+        public void ResetGame()
+        {
+            // Reset state flags
+            _gameOver = false;
+            _isCheckingForEmpty = false;
+
+            // Restore hearts
+            _currentHearts = maxHearts;
+            OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+            Debug.Log($"TumbangPresoGameManager: Hearts restored to {maxHearts}.");
+
+            // Reset the can
+            if (can != null)
+                can.ResetCan();
+
+            // Destroy all currently tracked slippers and spawn a fresh batch
+            foreach (var slipper in _activeSlippers)
+            {
+                if (slipper != null)
+                    Destroy(slipper.gameObject);
+            }
+            _activeSlippers.Clear();
+
+            SpawnSlipperBatch(useInitialSpawn: true);
+
+            Debug.Log("TumbangPresoGameManager: Game reset.");
+        }
+
+        // ─── Cleanup ───────────────────────────────────────────────────────────────
 
         private void OnDestroy()
         {

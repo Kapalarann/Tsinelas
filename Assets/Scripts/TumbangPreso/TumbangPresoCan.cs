@@ -20,6 +20,18 @@ namespace Tsinelas.TumbangPreso
         public event Action OnCanKnockedDown;
 
         private bool _isKnockedDown = false;
+        private Rigidbody _rb;
+
+        // Cached spawn transform for resetting on Retry
+        private Vector3 _initialPosition;
+        private Quaternion _initialRotation;
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+            _initialPosition = transform.position;
+            _initialRotation = transform.rotation;
+        }
 
         private void Update()
         {
@@ -56,6 +68,26 @@ namespace Tsinelas.TumbangPreso
             OnCanKnockedDown?.Invoke();
         }
 
+        /// <summary>
+        /// Restores the can to its original position and upright rotation.
+        /// Call this from TumbangPresoGameManager.ResetGame() on Retry.
+        /// </summary>
+        public void ResetCan()
+        {
+            // Temporarily make kinematic so we can teleport without physics fighting us
+            _rb.isKinematic = true;
+            transform.position = _initialPosition;
+            transform.rotation = _initialRotation;
+            _rb.isKinematic = false;
+
+            // Clear any lingering velocity
+            _rb.linearVelocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
+
+            _isKnockedDown = false;
+            Debug.Log("TumbangPresoCan: Can has been reset.");
+        }
+
         private void OnDrawGizmosSelected()
         {
             // Visualize the knockdown tilt in the editor
@@ -67,3 +99,4 @@ namespace Tsinelas.TumbangPreso
         }
     }
 }
+
