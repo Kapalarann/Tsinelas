@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de897d6d869ccdb4ea176b71f89768c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tsinelas.Hub.MinigameProximityZone
-  sceneToLoad: 
+  sceneToLoad: Tumbam preso
   minigameTitle: Minigame Title
   minigameDescription: Step inside to play this game!
   activationRange: 6

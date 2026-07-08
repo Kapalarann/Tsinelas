@@ -979,70 +979,37 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "71a4d23f-3e9a-4513-923b-ba388c5e84bf",
-                    "path": "<XRController>{LeftHand}/{GripButton}",
+                    "name": "Pinch",
+                    "id": "e0ef2b92-53f4-45e2-91b7-5fe4f26a747c",
+                    "path": "ButtonWithOneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Select",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "73325635-d9e5-481a-9279-ae7be089422d",
-                    "path": "<MetaAimHand>{LeftHand}/indexPressed",
+                    "name": "modifier",
+                    "id": "c41d0f81-db69-4b22-9cec-a6fd07c7064e",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Select",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "3bbf9f24-2edd-41b9-8456-683298f1e58c",
-                    "path": "<HandInteraction>{LeftHand}/graspFirm",
+                    "name": "button",
+                    "id": "44b0b3cd-5dae-4aa2-b67e-129c1e8784a1",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Select",
                     "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a86585c7-1d41-40e2-a7ca-bb76cca5c32a",
-                    "path": "<HandInteraction>{LeftHand}/pinchTouched",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ebab6345-d4f7-4a42-94b3-12d4464de218",
-                    "path": "<HoloLensHand>{LeftHand}/squeezePressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "87d9a1e7-704b-43bb-be2a-f2d8ecfde8b7",
-                    "path": "<KHRSimpleController>{LeftHand}/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -2072,70 +2039,37 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "1ce80054-410d-4112-a332-50faa7fb4f23",
-                    "path": "<XRController>{RightHand}/{GripButton}",
+                    "name": "Pinch",
+                    "id": "fdd35bf7-ed32-4abe-a12b-e678c1fa5f5f",
+                    "path": "ButtonWithOneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Select",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "1d5b47ea-64e3-4b99-b620-de6c360908be",
-                    "path": "<MetaAimHand>{RightHand}/indexPressed",
+                    "name": "modifier",
+                    "id": "67c58665-99c8-4d3d-b37a-23d77447b6a9",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Select",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "1fe3ab58-51f3-4274-995c-176ac72d9610",
-                    "path": "<HandInteraction>{RightHand}/graspFirm",
+                    "name": "button",
+                    "id": "4137f248-1175-4277-8bb6-1581a4b25e9c",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Select",
                     "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f6083118-4e38-45a2-afaf-52fa60444f78",
-                    "path": "<HandInteraction>{RightHand}/pinchTouched",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "82f232f1-6246-4d1e-aacc-a7ccc16c76d9",
-                    "path": "<HoloLensHand>{RightHand}/squeezePressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "69580c32-8c9a-47d9-8b23-b53d760ca5da",
-                    "path": "<KHRSimpleController>{RightHand}/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -2513,17 +2447,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Snap Turn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "052b129b-fc83-4b33-a606-af10ad595c3e",
-                    "path": "<XRController>{RightHand}/{PrimaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
