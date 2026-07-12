@@ -109,7 +109,7 @@ namespace Tsinelas.TumbangPreso
 
             Debug.Log("TumbangPresoWinPanel: Retry clicked.");
 
-            TumbangPresoGameManager manager = Object.FindObjectOfType<TumbangPresoGameManager>();
+            TumbangPresoGameManager manager = Object.FindFirstObjectByType<TumbangPresoGameManager>();
             Destroy(gameObject);
 
             if (manager != null)

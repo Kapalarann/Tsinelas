@@ -28,8 +28,7 @@ namespace Tsinelas.TumbangPreso
         public float respawnSpread = 0.3f;
 
         [Header("Slipper Detection")]
-        [Tooltip("Distance from the player within which a slipper is still considered 'available' (not yet spent).")]
-        public float slipperRecallRange = 5.0f;
+
 
         [Tooltip("How long to wait after all slippers are spent before spawning the next batch.")]
         public float respawnDelay = 1.0f;
@@ -113,11 +112,8 @@ namespace Tsinelas.TumbangPreso
             {
                 if (slipper == null) continue;
 
-                // A slipper is NOT spent if: it's being held by the player OR it's within recall range
-                if (slipper.IsHeld) return false;
-
-                float dist = Vector3.Distance(slipper.transform.position, _playerTransform.position);
-                if (dist < slipperRecallRange) return false;
+                // A slipper is NOT spent if: it's being held by the player OR it hasn't been thrown yet
+                if (slipper.IsHeld || !slipper.HasBeenThrown) return false;
             }
 
             return true;

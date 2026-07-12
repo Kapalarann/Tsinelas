@@ -17,6 +17,11 @@ namespace Tsinelas.TumbangPreso
         /// </summary>
         public bool IsHeld { get; private set; } = false;
 
+        /// <summary>
+        /// True when the player has released/thrown this slipper.
+        /// </summary>
+        public bool HasBeenThrown { get; private set; } = false;
+
         private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable _grabInteractable;
         private Rigidbody _rb;
 
@@ -48,7 +53,12 @@ namespace Tsinelas.TumbangPreso
         private void OnReleased(SelectExitEventArgs args)
         {
             IsHeld = false;
-            Debug.Log($"TumbangPresoSlipper: {gameObject.name} was released/thrown.");
+            HasBeenThrown = true;
+            if (_grabInteractable != null)
+            {
+                _grabInteractable.enabled = false;
+            }
+            Debug.Log($"TumbangPresoSlipper: {gameObject.name} was released/thrown and can no longer be grabbed.");
         }
     }
 }
