@@ -992,7 +992,7 @@
                 {
                     "name": "modifier",
                     "id": "c41d0f81-db69-4b22-9cec-a6fd07c7064e",
-                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -2052,7 +2052,7 @@
                 {
                     "name": "modifier",
                     "id": "67c58665-99c8-4d3d-b37a-23d77447b6a9",
-                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

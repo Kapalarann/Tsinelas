@@ -84,6 +84,20 @@ namespace Tsinelas.Hub
             {
                 _exclamationStartLocalY = exclamationText.transform.localPosition.y;
             }
+
+            // Ensure Canvas is ready for VR interaction
+            if (targetCanvas != null)
+            {
+                GraphicRaycaster oldRaycaster = targetCanvas.GetComponent<GraphicRaycaster>();
+                if (oldRaycaster != null && oldRaycaster.GetType() == typeof(GraphicRaycaster))
+                {
+                    Destroy(oldRaycaster);
+                }
+                if (targetCanvas.GetComponent<UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster>() == null)
+                {
+                    targetCanvas.gameObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster>();
+                }
+            }
         }
 
         private void Update()
@@ -163,7 +177,7 @@ namespace Tsinelas.Hub
             targetCanvas = canvasGo.AddComponent<Canvas>();
             targetCanvas.renderMode = RenderMode.WorldSpace;
             canvasGo.AddComponent<CanvasScaler>();
-            canvasGo.AddComponent<GraphicRaycaster>();
+            canvasGo.AddComponent<UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster>();
 
             RectTransform canvasRect = canvasGo.GetComponent<RectTransform>();
             canvasRect.sizeDelta = new Vector2(400, 300); // 400x300 UI pixels

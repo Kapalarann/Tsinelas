@@ -52,6 +52,21 @@ namespace Tsinelas.TumbangPreso
                 _hubButton.onClick.AddListener(OnHubClicked);
             else
                 Debug.LogWarning("TumbangPresoLosePanel: Hub Button is not assigned.");
+
+            // Ensure Canvas is ready for VR interaction
+            Canvas canvas = GetComponentInChildren<Canvas>(true);
+            if (canvas != null)
+            {
+                GraphicRaycaster oldRaycaster = canvas.GetComponent<GraphicRaycaster>();
+                if (oldRaycaster != null && oldRaycaster.GetType() == typeof(GraphicRaycaster))
+                {
+                    Destroy(oldRaycaster);
+                }
+                if (canvas.GetComponent<UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster>() == null)
+                {
+                    canvas.gameObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster>();
+                }
+            }
         }
 
         private void Update()
