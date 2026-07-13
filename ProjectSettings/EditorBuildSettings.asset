@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: e36f9c161050cb846b2763496776b0d4
   - enabled: 1
     path: Assets/Scenes/Tumbam preso.unity
-    guid: f4e415e63e20fcc41a6bd5caf938f679
+    guid: b1d24cdf19950e641b38ce3ce5819c7f
   - enabled: 1
     path: Assets/Scenes/Fly swatting.unity
     guid: 42197f1c303f67647a4060b77d978234

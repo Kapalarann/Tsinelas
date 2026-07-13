@@ -22,8 +22,17 @@ namespace Tsinelas.TumbangPreso
         /// </summary>
         public bool HasBeenThrown { get; private set; } = false;
 
+        [Tooltip("How far the slipper must be from the player to be considered thrown.")]
+        public float throwDistanceThreshold = 1.5f;
+
         private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable _grabInteractable;
         private Rigidbody _rb;
+        private Transform _playerTransform;
+        
+        /// <summary>
+        /// True if the player has ever picked up this slipper.
+        /// </summary>
+        private bool _hasBeenHandled = false;
 
         private void Awake()
         {
@@ -33,6 +42,29 @@ namespace Tsinelas.TumbangPreso
             // Subscribe to XRI grab and release events
             _grabInteractable.selectEntered.AddListener(OnGrabbed);
             _grabInteractable.selectExited.AddListener(OnReleased);
+        }
+
+        private void Start()
+        {
+            if (Camera.main != null)
+                _playerTransform = Camera.main.transform;
+        }
+
+        private void Update()
+        {
+            if (_hasBeenHandled && !IsHeld && !HasBeenThrown && _playerTransform != null)
+            {
+                float distance = Vector3.Distance(transform.position, _playerTransform.position);
+                if (distance > throwDistanceThreshold)
+                {
+                    HasBeenThrown = true;
+                    if (_grabInteractable != null)
+                    {
+                        _grabInteractable.enabled = false;
+                    }
+                    Debug.Log($"TumbangPresoSlipper: {gameObject.name} was thrown far and can no longer be grabbed.");
+                }
+            }
         }
 
         private void OnDestroy()
@@ -47,18 +79,14 @@ namespace Tsinelas.TumbangPreso
         private void OnGrabbed(SelectEnterEventArgs args)
         {
             IsHeld = true;
+            _hasBeenHandled = true;
             Debug.Log($"TumbangPresoSlipper: {gameObject.name} was grabbed.");
         }
 
         private void OnReleased(SelectExitEventArgs args)
         {
             IsHeld = false;
-            HasBeenThrown = true;
-            if (_grabInteractable != null)
-            {
-                _grabInteractable.enabled = false;
-            }
-            Debug.Log($"TumbangPresoSlipper: {gameObject.name} was released/thrown and can no longer be grabbed.");
+            Debug.Log($"TumbangPresoSlipper: {gameObject.name} was released.");
         }
     }
 }
