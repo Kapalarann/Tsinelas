@@ -1577,7 +1577,8 @@ PrefabInstance:
       value: Fly swatting minigame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8985311379074952482, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
@@ -3393,7 +3394,8 @@ PrefabInstance:
       value: Tumbang preso marker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8985311379074952482, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
@@ -8628,7 +8630,8 @@ PrefabInstance:
       value: Puno minigame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8985311379074952482, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
