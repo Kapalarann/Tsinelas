@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Hub.unity
+    path: Assets/Scenes/main hub.unity
     guid: e36f9c161050cb846b2763496776b0d4
   - enabled: 1
     path: Assets/Scenes/Tumbam preso.unity
