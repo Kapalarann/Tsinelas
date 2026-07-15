@@ -149,9 +149,17 @@ namespace Tsinelas.FlySwatting
         {
             if (IsDowned) return;
 
-            // Check if hit by slipper
-            var slipper = collision.gameObject.GetComponentInParent<Tsinelas.TumbangPreso.TumbangPresoSlipper>();
-            if (slipper != null)
+            // Check if hit by a Fly Swatting slipper (held swatter)
+            var flySwattingSlipper = collision.gameObject.GetComponentInParent<FlySwattingSlipper>();
+            if (flySwattingSlipper != null)
+            {
+                DownFly();
+                return;
+            }
+
+            // Fallback: check if hit by a Tumbang Preso slipper (thrown)
+            var tumbangSlipper = collision.gameObject.GetComponentInParent<Tsinelas.TumbangPreso.TumbangPresoSlipper>();
+            if (tumbangSlipper != null)
             {
                 DownFly();
             }

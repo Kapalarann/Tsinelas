@@ -2749,7 +2749,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3079511812392895539, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &401613619 stripped
@@ -6549,7 +6549,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2610788475953756333, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &882844228 stripped
@@ -7472,7 +7472,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5818771854581353410, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &1036329181 stripped
@@ -11005,7 +11005,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -829423339715784373, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &1650848042
@@ -11341,6 +11341,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 613374747363da549966d4e27dd66345, type: 2}
+    - target: {fileID: -1889075732673658778, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.984
+      objectReference: {fileID: 0}
     - target: {fileID: -1120989108687609925, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -12570,7 +12574,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3294010927598980337, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &1780589704 stripped
@@ -12651,7 +12655,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4451976814662627687, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &1796814873
@@ -14281,7 +14285,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8432295625762979164, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &1872377328 stripped
@@ -14362,7 +14366,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7702188991385045155, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &1881759666 stripped
@@ -15168,7 +15172,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -953910507175978798, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &1959883322
@@ -15451,7 +15455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eaf33b4b4dc84f40ae40c5805685129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tsinelas.FlySwatting.FlySwattingGameManager
-  slipperPrefab: {fileID: 5018711133318578670, guid: 2f586744ee78f55428cb8d22caf8e768, type: 3}
+  slipperPrefab: {fileID: 5018711133318578670, guid: ff49b86ead656654c8f165272a12fbd0, type: 3}
   slippersPerBatch: 2
   initialSpawnOffset: {x: 0, y: 0.05, z: 0}
   respawnOffset: {x: 0, y: 1.2, z: 0.6}
@@ -15476,12 +15480,11 @@ MonoBehaviour:
   - {fileID: 10824553}
   - {fileID: 1799026081}
   fliesToSpawn: 5
-  spawnRadius: 2
-  spawnMinHeight: 1
-  spawnMaxHeight: 2.5
   maxHearts: 3
   winPanelPrefab: {fileID: 9010074449890679988, guid: ea09d9793e718c64997518320ec10b5c, type: 3}
   losePanelPrefab: {fileID: 9010074449890679988, guid: 6d4c7c4b7474591459e693065dc16272, type: 3}
+  useTimeLimit: 0
+  timeLimit: 60
 --- !u!1 &1972449655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2505368143670225931, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
@@ -15712,7 +15715,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -133504046570236566, guid: 0f43d2c1e9b6e2943bbd6f54768380b6, type: 3}
 --- !u!1 &2009582040 stripped
