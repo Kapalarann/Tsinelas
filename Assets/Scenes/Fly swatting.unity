@@ -5291,8 +5291,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b35da4aecbc6733458b33ba7a668d9ea, type: 2}
+  m_sharedMaterial: {fileID: 248528172456417411, guid: b35da4aecbc6733458b33ba7a668d9ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8752,17 +8752,93 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158109316112534784, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 259915335700108647, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 412754564706044335, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 736495231688002038, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_text
       value: Fly Swatting
+      objectReference: {fileID: 0}
+    - target: {fileID: 902805768037713622, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134042638531146825, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253369781028315930, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621254962433019889, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305568206685327791, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365489549542348175, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674109751267891609, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115177652428433292, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266629826153929614, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3266629826153929614, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3692784052070190327, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4322248173228350482, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668611053595005623, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4777500588806455139, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_text
       value: Fly Swatting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134835817884661691, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371998811599184697, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435376493819671592, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455739240785209958, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5610242364235632008, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_text
@@ -8809,6 +8885,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5998917383781425196, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998917383781425196, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -8816,13 +8896,41 @@ PrefabInstance:
       propertyPath: m_text
       value: Fly Swatting
       objectReference: {fileID: 0}
+    - target: {fileID: 6666302011583096761, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677648502336006298, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6817204692917712779, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_text
       value: You Have 2 minutes
       objectReference: {fileID: 0}
     - target: {fileID: 6960060289050161789, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960060289050161789, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967814012498422078, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969355039829191611, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639219540718441208, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896053291494687366, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8053900011476773526, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: _nextButtons.Array.size
@@ -8872,9 +8980,37 @@ PrefabInstance:
       propertyPath: '_closeButtons.Array.data[2]'
       value: 
       objectReference: {fileID: 773856945}
+    - target: {fileID: 8345188956130412783, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757071220334580939, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815801555617631543, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819910797514845783, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9010074449890679988, guid: fe1707406009f904da59f11ff039cb69, type: 3}
       propertyPath: m_Name
       value: Tutorial Panel fly swatting
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089958882364454635, guid: fe1707406009f904da59f11ff039cb69, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10345,8 +10481,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b35da4aecbc6733458b33ba7a668d9ea, type: 2}
+  m_sharedMaterial: {fileID: 248528172456417411, guid: b35da4aecbc6733458b33ba7a668d9ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10376,7 +10512,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -16195,6 +16331,7 @@ MonoBehaviour:
   - {fileID: 1799026081}
   fliesToSpawn: 5
   maxHearts: 3
+  heartImages: []
   winPanelPrefab: {fileID: 9010074449890679988, guid: ea09d9793e718c64997518320ec10b5c, type: 3}
   losePanelPrefab: {fileID: 9010074449890679988, guid: 6d4c7c4b7474591459e693065dc16272, type: 3}
   useTimeLimit: 1

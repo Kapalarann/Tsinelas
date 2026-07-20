@@ -1580,6 +1580,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 259915335700108647, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305568206685327791, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266629826153929614, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455739240785209958, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5898346853330990684, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9379214
@@ -1620,6 +1636,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8511578105923051850, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8558948159790856017, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: sceneToLoad
       value: Fly swatting
@@ -1627,6 +1647,14 @@ PrefabInstance:
     - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: m_Name
       value: Fly swatting minigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3397,6 +3425,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 259915335700108647, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305568206685327791, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266629826153929614, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455739240785209958, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5898346853330990684, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30
@@ -3437,6 +3481,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8511578105923051850, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8558948159790856017, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: sceneToLoad
       value: Tumbam preso
@@ -3444,6 +3492,14 @@ PrefabInstance:
     - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: m_Name
       value: Tumbang preso marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -8633,6 +8689,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 259915335700108647, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305568206685327791, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266629826153929614, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455739240785209958, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5898346853330990684, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.75
@@ -8673,6 +8745,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8511578105923051850, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8558948159790856017, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: sceneToLoad
       value: Puno thing
@@ -8680,6 +8756,14 @@ PrefabInstance:
     - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
       propertyPath: m_Name
       value: Puno minigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010074449890679988, guid: 275e03758df2deb4b97450b3ad71c35a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

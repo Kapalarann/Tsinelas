@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9221399204579614925}
   - component: {fileID: 6989052155834042728}
   - component: {fileID: 4721952501563421181}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 8206113597060234220}
   - component: {fileID: 6001740276115489321}
   - component: {fileID: 8529180765560201675}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 8976893054471485789}
   - component: {fileID: 7212104514312960127}
   - component: {fileID: 8390840024100680713}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 7798270486505452226}
   - component: {fileID: 4338908913082421520}
   - component: {fileID: 6466429660865999251}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,8 +370,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b35da4aecbc6733458b33ba7a668d9ea, type: 2}
+  m_sharedMaterial: {fileID: 248528172456417411, guid: b35da4aecbc6733458b33ba7a668d9ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 343992236396897301}
   - component: {fileID: 4676082678775624268}
   - component: {fileID: 6083733879372400750}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: '!'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 5308068102262254103}
   - component: {fileID: 2547819511330141612}
   - component: {fileID: 2722739763057030943}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5898346853330990684}
   - component: {fileID: 8558948159790856017}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Minigame marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
