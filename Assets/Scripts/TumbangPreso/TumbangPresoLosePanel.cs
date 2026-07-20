@@ -107,15 +107,8 @@ namespace Tsinelas.TumbangPreso
             if (_isTransitioning) return;
             _isTransitioning = true;
 
-            Debug.Log("TumbangPresoLosePanel: Retry clicked.");
-
-            TumbangPresoGameManager manager = Object.FindFirstObjectByType<TumbangPresoGameManager>();
-            Destroy(gameObject);
-
-            if (manager != null)
-                manager.ResetGame();
-            else
-                Debug.LogWarning("TumbangPresoLosePanel: Could not find TumbangPresoGameManager in scene.");
+            Debug.Log("TumbangPresoLosePanel: Retry clicked — reloading scene.");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void OnHubClicked()

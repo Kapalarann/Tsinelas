@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Tsinelas.TumbangPreso;
 
 namespace Tsinelas.Puno
@@ -201,20 +202,7 @@ namespace Tsinelas.Puno
 
         public void ResetGame()
         {
-            _gameOver = false;
-            _isCheckingForEmpty = false;
-            _currentHearts = maxHearts;
-            OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
-            UpdateHeartsUI();
-            Debug.Log($"PunoGameManager: Hearts restored to {maxHearts}.");
-
-            foreach (var slipper in _activeSlippers)
-            {
-                if (slipper != null) Destroy(slipper.gameObject);
-            }
-            _activeSlippers.Clear();
-            SpawnSlipperBatch(useInitialSpawn: true);
-            Debug.Log("PunoGameManager: Game reset.");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void OnDestroy()

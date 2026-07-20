@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Tsinelas.FlySwatting
 {
@@ -364,39 +365,12 @@ namespace Tsinelas.FlySwatting
         }
 
         /// <summary>
-        /// Retry reset — keeps downed (dead) flies on the ground exactly where they fell.
-        /// Resets hearts and slippers, then spawns new flies only at areas that no
-        /// longer have a living fly.
+        /// Retry reset — reloads the scene for a clean start.
         /// Call this from the Lose Panel's Retry button.
         /// </summary>
         public void ResetGame()
         {
-            _gameOver = false;
-            _currentHearts = maxHearts;
-            OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
-            UpdateHeartsUI();
-
-            if (useTimeLimit)
-            {
-                _timeRemaining = timeLimit;
-                OnTimeChanged?.Invoke(_timeRemaining);
-            }
-
-            // Clean up old slippers
-            foreach (var slipper in _activeSlippers)
-            {
-                if (slipper != null)
-                    Destroy(slipper.gameObject);
-            }
-            _activeSlippers.Clear();
-
-            // Spawn new flies only where living flies no longer exist; keep downed ones
-            SpawnFlies(destroyExisting: false);
-
-            // Spawn fresh slippers
-            SpawnSlipperBatch(useInitialSpawn: true);
-
-            Debug.Log("FlySwattingGameManager: Game retried — dead flies kept on ground.");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void OnDestroy()
