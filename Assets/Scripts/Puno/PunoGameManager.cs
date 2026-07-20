@@ -24,6 +24,8 @@ namespace Tsinelas.Puno
 
         [Header("Win / Lose")]
         public int maxHearts = 3;
+        [Tooltip("Images representing the hearts on the UI.")]
+        public UnityEngine.UI.Image[] heartImages;
         public GameObject winPanelPrefab;
         public GameObject losePanelPrefab;
 
@@ -56,8 +58,21 @@ namespace Tsinelas.Puno
 
             _currentHearts = maxHearts;
             OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+            UpdateHeartsUI();
 
             SpawnSlipperBatch(useInitialSpawn: true);
+        }
+
+        private void UpdateHeartsUI()
+        {
+            if (heartImages == null) return;
+            for (int i = 0; i < heartImages.Length; i++)
+            {
+                if (heartImages[i] != null)
+                {
+                    heartImages[i].enabled = (i < _currentHearts);
+                }
+            }
         }
 
         private void Update()
@@ -99,6 +114,7 @@ namespace Tsinelas.Puno
             _currentHearts--;
             Debug.Log($"PunoGameManager: Heart lost. Hearts remaining: {_currentHearts}/{maxHearts}");
             OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+            UpdateHeartsUI();
 
             if (_currentHearts <= 0)
             {
@@ -160,6 +176,7 @@ namespace Tsinelas.Puno
 
         private void ShowWin()
         {
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayWinSound();
             if (winPanelPrefab == null)
             {
                 Debug.LogWarning("PunoGameManager: Win Panel Prefab is not assigned.");
@@ -172,6 +189,7 @@ namespace Tsinelas.Puno
         {
             _gameOver = true;
             Debug.Log("PunoGameManager: Out of hearts! Player loses.");
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayLoseSound();
 
             if (losePanelPrefab == null)
             {
@@ -187,6 +205,7 @@ namespace Tsinelas.Puno
             _isCheckingForEmpty = false;
             _currentHearts = maxHearts;
             OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+            UpdateHeartsUI();
             Debug.Log($"PunoGameManager: Hearts restored to {maxHearts}.");
 
             foreach (var slipper in _activeSlippers)

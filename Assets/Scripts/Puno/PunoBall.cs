@@ -11,6 +11,17 @@ namespace Tsinelas.Puno
     {
         public event Action OnBallFreed;
 
+
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            var slipper = collision.gameObject.GetComponentInParent<Tsinelas.TumbangPreso.TumbangPresoSlipper>();
+            if (slipper != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayBallHit(transform.position);
+            }
+        }
+
         private void OnJointBreak(float breakForce)
         {
             Debug.Log($"PunoBall: Joint broke with force {breakForce}");

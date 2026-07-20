@@ -221,6 +221,8 @@ namespace Tsinelas.TumbangPreso
 
         private void ShowWin()
         {
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayWinSound();
+
             if (winPanelPrefab == null)
             {
                 Debug.LogWarning("TumbangPresoGameManager: Win Panel Prefab is not assigned.");
@@ -234,6 +236,8 @@ namespace Tsinelas.TumbangPreso
         {
             _gameOver = true;
             Debug.Log("TumbangPresoGameManager: Out of hearts! Player loses.");
+
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayLoseSound();
 
             if (losePanelPrefab == null)
             {

@@ -56,6 +56,9 @@ namespace Tsinelas.TumbangPreso
             {
                 float impactForce = collision.impulse.magnitude;
                 Debug.Log($"TumbangPresoCan: Hit by slipper '{collision.gameObject.name}' with impulse {impactForce:F2}N.");
+                
+                if (AudioManager.Instance != null) AudioManager.Instance.PlayCanHit(transform.position);
+                
                 // Knockdown is determined via tilt angle check in Update, not directly here,
                 // so the physics simulation can fully resolve first.
             }
@@ -65,6 +68,7 @@ namespace Tsinelas.TumbangPreso
         {
             _isKnockedDown = true;
             Debug.Log("TumbangPresoCan: Can has been knocked down!");
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayCanFall(transform.position);
             OnCanKnockedDown?.Invoke();
         }
 

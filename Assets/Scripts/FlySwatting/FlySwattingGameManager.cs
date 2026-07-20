@@ -33,14 +33,20 @@ namespace Tsinelas.FlySwatting
         [Header("Win / Lose")]
         [Tooltip("Starting number of hearts. Each slipper respawn costs 1 heart.")]
         public int maxHearts = 3;
+        [Tooltip("Images representing the hearts on the UI.")]
+        public UnityEngine.UI.Image[] heartImages;
         public GameObject winPanelPrefab;
         public GameObject losePanelPrefab;
 
         [Header("Time Limit Settings")]
         [Tooltip("Should the game be time-based instead of heart-based?")]
-        public bool useTimeLimit = false;
+        public bool useTimeLimit = true;
         [Tooltip("Time limit in seconds if useTimeLimit is enabled.")]
-        public float timeLimit = 60f;
+        public float timeLimit = 120f;
+        [Tooltip("Text UI element to display remaining time.")]
+        public TMPro.TMP_Text timerText;
+        [Tooltip("Text UI element to display downed flies vs total flies.")]
+        public TMPro.TMP_Text fliesText;
 
         public event Action<int, int> OnHeartsChanged;
         public event Action<int, int> OnFliesDownedChanged; // (int downedCount, int totalCount)
@@ -91,6 +97,14 @@ namespace Tsinelas.FlySwatting
             {
                 _timeRemaining -= Time.deltaTime;
                 OnTimeChanged?.Invoke(_timeRemaining);
+                
+                if (timerText != null)
+                {
+                    float displayTime = Mathf.Max(_timeRemaining, 0f);
+                    int minutes = Mathf.FloorToInt(displayTime / 60f);
+                    int seconds = Mathf.FloorToInt(displayTime % 60f);
+                    timerText.text = $"{minutes:00}:{seconds:00}";
+                }
 
                 if (_timeRemaining <= 0f)
                 {
@@ -102,6 +116,18 @@ namespace Tsinelas.FlySwatting
         }
 
 
+
+        private void UpdateHeartsUI()
+        {
+            if (heartImages == null) return;
+            for (int i = 0; i < heartImages.Length; i++)
+            {
+                if (heartImages[i] != null)
+                {
+                    heartImages[i].enabled = (i < _currentHearts);
+                }
+            }
+        }
 
         private void SpawnSlipperBatch(bool useInitialSpawn)
         {
@@ -210,6 +236,7 @@ namespace Tsinelas.FlySwatting
                 // All required flies are already alive; just recount
                 _totalFliesToDown = _spawnedFlies.Count;
                 OnFliesDownedChanged?.Invoke(_downedFliesCount, _totalFliesToDown);
+                if (fliesText != null) fliesText.text = $"{_downedFliesCount} / {_totalFliesToDown}";
                 return;
             }
 
@@ -251,6 +278,7 @@ namespace Tsinelas.FlySwatting
 
             _totalFliesToDown = _spawnedFlies.Count;
             OnFliesDownedChanged?.Invoke(_downedFliesCount, _totalFliesToDown);
+            if (fliesText != null) fliesText.text = $"{_downedFliesCount} / {_totalFliesToDown}";
             Debug.Log($"FlySwattingGameManager: Spawned {pickCount} new fly/flies. Total living: {_totalFliesToDown}.");
         }
 
@@ -263,6 +291,7 @@ namespace Tsinelas.FlySwatting
             fly.OnFlyDowned -= HandleFlyDowned;
             _downedFliesCount++;
             OnFliesDownedChanged?.Invoke(_downedFliesCount, _totalFliesToDown);
+            if (fliesText != null) fliesText.text = $"{_downedFliesCount} / {_totalFliesToDown}";
 
             Debug.Log($"FlySwattingGameManager: Fly downed. Progress: {_downedFliesCount}/{_totalFliesToDown}");
 
@@ -276,6 +305,8 @@ namespace Tsinelas.FlySwatting
         private void ShowWin()
         {
             Debug.Log("FlySwattingGameManager: All flies downed! Player wins!");
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayWinSound();
+            
             if (winPanelPrefab == null)
             {
                 Debug.LogWarning("FlySwattingGameManager: Win Panel Prefab is not assigned.");
@@ -288,6 +319,7 @@ namespace Tsinelas.FlySwatting
         {
             _gameOver = true;
             Debug.Log("FlySwattingGameManager: Out of hearts! Player loses.");
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayLoseSound();
 
             if (losePanelPrefab == null)
             {
@@ -306,6 +338,7 @@ namespace Tsinelas.FlySwatting
             _gameOver = false;
             _currentHearts = maxHearts;
             OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+            UpdateHeartsUI();
 
             if (useTimeLimit)
             {
@@ -341,6 +374,7 @@ namespace Tsinelas.FlySwatting
             _gameOver = false;
             _currentHearts = maxHearts;
             OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+            UpdateHeartsUI();
 
             if (useTimeLimit)
             {

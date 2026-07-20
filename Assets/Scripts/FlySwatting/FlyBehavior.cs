@@ -32,6 +32,7 @@ namespace Tsinelas.FlySwatting
         [Header("VFX")]
         [Tooltip("VFX Graph asset (.vfx) to play at the fly's position when hit.")]
         public VisualEffectAsset bloodSplatterAsset;
+        private AudioSource _audioSource;
 
         // Fired when this fly is hit and downed
         public event Action<FlyBehavior> OnFlyDowned;
@@ -55,6 +56,17 @@ namespace Tsinelas.FlySwatting
             _rb.useGravity = false; // Start floating/flying
             _rb.linearDamping = 1f;
             _rb.angularDamping = 1f;
+
+            _audioSource = GetComponent<AudioSource>();
+            if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.loop = true;
+            _audioSource.spatialBlend = 1f; // Make it 3D
+            
+            if (AudioManager.Instance != null && AudioManager.Instance.flyBuzzClip != null)
+            {
+                _audioSource.clip = AudioManager.Instance.flyBuzzClip;
+                _audioSource.Play();
+            }
         }
 
         /// <summary>
@@ -176,6 +188,12 @@ namespace Tsinelas.FlySwatting
                 Destroy(_springJoint);
             }
 
+            if (_audioSource != null)
+            {
+                _audioSource.Stop();
+            }
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayFlyHit(transform.position);
+
             // Cleanup anchor
             if (_anchorObj != null)
             {
@@ -190,8 +208,7 @@ namespace Tsinelas.FlySwatting
                 vfxGo.transform.position = transform.position;
                 VisualEffect vfx = vfxGo.AddComponent<VisualEffect>();
                 vfx.visualEffectAsset = bloodSplatterAsset;
-                vfx.Play();
-                Destroy(vfxGo, 3f);
+                Destroy(vfxGo, 0.5f);
             }
 
             // Fall with physics
