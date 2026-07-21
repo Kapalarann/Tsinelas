@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Tsinelas.TumbangPreso
 {
@@ -257,7 +256,30 @@ namespace Tsinelas.TumbangPreso
         /// </summary>
         public void ResetGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Reset state flags
+            _gameOver = false;
+            _isCheckingForEmpty = false;
+
+            // Restore hearts
+            _currentHearts = maxHearts;
+            OnHeartsChanged?.Invoke(_currentHearts, maxHearts);
+            Debug.Log($"TumbangPresoGameManager: Hearts restored to {maxHearts}.");
+
+            // Reset the can
+            if (can != null)
+                can.ResetCan();
+
+            // Destroy all currently tracked slippers and spawn a fresh batch
+            foreach (var slipper in _activeSlippers)
+            {
+                if (slipper != null)
+                    Destroy(slipper.gameObject);
+            }
+            _activeSlippers.Clear();
+
+            SpawnSlipperBatch(useInitialSpawn: true);
+
+            Debug.Log("TumbangPresoGameManager: Game reset.");
         }
 
         // ─── Cleanup ───────────────────────────────────────────────────────────────
