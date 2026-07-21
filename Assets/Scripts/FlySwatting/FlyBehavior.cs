@@ -61,11 +61,14 @@ namespace Tsinelas.FlySwatting
             if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
             _audioSource.loop = true;
             _audioSource.spatialBlend = 1f; // Make it 3D
-            
-            if (AudioManager.Instance != null && AudioManager.Instance.flyBuzzClip != null)
+        }
+
+        public void SetBuzzClip(AudioClip clip)
+        {
+            if (_audioSource != null)
             {
-                _audioSource.clip = AudioManager.Instance.flyBuzzClip;
-                _audioSource.Play();
+                _audioSource.clip = clip;
+                if (!IsDowned) _audioSource.Play();
             }
         }
 
@@ -192,7 +195,6 @@ namespace Tsinelas.FlySwatting
             {
                 _audioSource.Stop();
             }
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayFlyHit(transform.position);
 
             // Cleanup anchor
             if (_anchorObj != null)

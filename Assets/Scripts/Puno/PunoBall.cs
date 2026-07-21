@@ -10,15 +10,16 @@ namespace Tsinelas.Puno
     public class PunoBall : MonoBehaviour
     {
         public event Action OnBallFreed;
+        public event Action OnBallHit;
 
 
 
         private void OnCollisionEnter(Collision collision)
         {
             var slipper = collision.gameObject.GetComponentInParent<Tsinelas.TumbangPreso.TumbangPresoSlipper>();
-            if (slipper != null && AudioManager.Instance != null)
+            if (slipper != null)
             {
-                AudioManager.Instance.PlayBallHit(transform.position);
+                OnBallHit?.Invoke();
             }
         }
 

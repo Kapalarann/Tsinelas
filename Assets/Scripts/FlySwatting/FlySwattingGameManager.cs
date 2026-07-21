@@ -51,6 +51,9 @@ namespace Tsinelas.FlySwatting
         public event Action<int, int> OnHeartsChanged;
         public event Action<int, int> OnFliesDownedChanged; // (int downedCount, int totalCount)
         public event Action<float> OnTimeChanged; // (float timeRemaining)
+        public event Action OnGameWon;
+        public event Action OnGameLost;
+        public event Action<FlyBehavior> OnFlySpawned;
 
         // Computed at spawn time — total flies this round
         private int _totalFliesToDown = 0;
@@ -268,6 +271,7 @@ namespace Tsinelas.FlySwatting
                     fly.Initialize(patrolAreas, i);
                     fly.OnFlyDowned += HandleFlyDowned;
                     _spawnedFlies.Add(fly);
+                    OnFlySpawned?.Invoke(fly);
                 }
                 else
                 {
@@ -305,7 +309,7 @@ namespace Tsinelas.FlySwatting
         private void ShowWin()
         {
             Debug.Log("FlySwattingGameManager: All flies downed! Player wins!");
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayWinSound();
+            OnGameWon?.Invoke();
             
             if (winPanelPrefab == null)
             {
@@ -319,7 +323,7 @@ namespace Tsinelas.FlySwatting
         {
             _gameOver = true;
             Debug.Log("FlySwattingGameManager: Out of hearts! Player loses.");
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayLoseSound();
+            OnGameLost?.Invoke();
 
             if (losePanelPrefab == null)
             {

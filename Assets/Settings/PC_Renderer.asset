@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97691facb29e44498a33081a5458c78, type: 3}
   m_Name: CelShadeFeature
   m_EditorClassIdentifier: Assembly-CSharp::CelShadeFeature
-  m_Active: 1
+  m_Active: 0
   settings:
     material: {fileID: 2100000, guid: 934c37f624131464cabcf4bffb114886, type: 2}
     posterizeSteps: 16
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3001b10da1e1c4444afcb94f2dc13385, type: 3}
   m_Name: ShinkaiFilterFeature
   m_EditorClassIdentifier: Assembly-CSharp::ShinkaiFilterFeature
-  m_Active: 1
+  m_Active: 0
   settings:
     renderPassEvent: 600
     material: {fileID: 2100000, guid: 77f65228e6582344e8232adc090eac1b, type: 2}

@@ -30,6 +30,8 @@ namespace Tsinelas.Puno
         public GameObject losePanelPrefab;
 
         public event Action<int, int> OnHeartsChanged;
+        public event Action OnGameWon;
+        public event Action OnGameLost;
 
         private List<TumbangPresoSlipper> _activeSlippers = new List<TumbangPresoSlipper>();
         private Transform _playerTransform;
@@ -176,7 +178,7 @@ namespace Tsinelas.Puno
 
         private void ShowWin()
         {
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayWinSound();
+            OnGameWon?.Invoke();
             if (winPanelPrefab == null)
             {
                 Debug.LogWarning("PunoGameManager: Win Panel Prefab is not assigned.");
@@ -189,7 +191,7 @@ namespace Tsinelas.Puno
         {
             _gameOver = true;
             Debug.Log("PunoGameManager: Out of hearts! Player loses.");
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayLoseSound();
+            OnGameLost?.Invoke();
 
             if (losePanelPrefab == null)
             {

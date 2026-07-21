@@ -53,6 +53,8 @@ namespace Tsinelas.TumbangPreso
         /// Hook this up to a HUD to display remaining lives.
         /// </summary>
         public event Action<int, int> OnHeartsChanged;
+        public event Action OnGameWon;
+        public event Action OnGameLost;
 
         // Internal state
         private List<TumbangPresoSlipper> _activeSlippers = new List<TumbangPresoSlipper>();
@@ -221,7 +223,7 @@ namespace Tsinelas.TumbangPreso
 
         private void ShowWin()
         {
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayWinSound();
+            OnGameWon?.Invoke();
 
             if (winPanelPrefab == null)
             {
@@ -237,7 +239,7 @@ namespace Tsinelas.TumbangPreso
             _gameOver = true;
             Debug.Log("TumbangPresoGameManager: Out of hearts! Player loses.");
 
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayLoseSound();
+            OnGameLost?.Invoke();
 
             if (losePanelPrefab == null)
             {

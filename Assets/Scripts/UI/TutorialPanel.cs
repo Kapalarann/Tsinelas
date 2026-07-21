@@ -32,6 +32,8 @@ namespace Tsinelas.UI
         private int _currentPageIndex = 0;
         private Transform _playerCamera;
 
+        public event System.Action OnButtonClicked;
+
         private void Start()
         {
             _playerCamera = Camera.main != null ? Camera.main.transform : null;
@@ -107,7 +109,7 @@ namespace Tsinelas.UI
 
         private void NextPage()
         {
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayButtonClick();
+            OnButtonClicked?.Invoke();
             if (_currentPageIndex < _panels.Count - 1)
             {
                 _currentPageIndex++;
@@ -117,7 +119,7 @@ namespace Tsinelas.UI
 
         private void PrevPage()
         {
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayButtonClick();
+            OnButtonClicked?.Invoke();
             if (_currentPageIndex > 0)
             {
                 _currentPageIndex--;
@@ -157,7 +159,7 @@ namespace Tsinelas.UI
 
         private void ClosePanel()
         {
-            if (AudioManager.Instance != null) AudioManager.Instance.PlayButtonClick();
+            OnButtonClicked?.Invoke();
             Destroy(gameObject, 0.1f);
         }
         
